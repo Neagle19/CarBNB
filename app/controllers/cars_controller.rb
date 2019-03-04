@@ -5,6 +5,6 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
-    @revies = Review
+    @reviews = Review.where(car_id: @car.id)
   end
 end
