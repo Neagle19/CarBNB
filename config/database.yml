@@ -5,8 +5,8 @@ default: &default
 
 development:
   <<: *default
-  database: rails-mister-cocktail_development
+  database: carBNB_development
 
 test:
   <<: *default
-  database: rails-mister-cocktail_test
+  database: carBNB_test
