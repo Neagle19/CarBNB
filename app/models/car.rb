@@ -1,5 +1,7 @@
 class Car < ApplicationRecord
   belongs_to :user
+  has_many :bookings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   # Added to validate method (TZ + SN)
   validates :name, presence: true
   validates :location, presence: true
