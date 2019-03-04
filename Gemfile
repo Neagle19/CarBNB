@@ -18,9 +18,16 @@ gem 'webpacker'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
+
+
+# This one's we added
+
+gem 'simple_form'
 gem 'devise'
 gem 'postgresql'
 gem 'pg'
+
+
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

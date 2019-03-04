@@ -1,0 +1,9 @@
+<h1>Add review for specific booking</h1>
+
+<%= simple_form_for([@car, @review], :url => car_reviews_path) do |f| %>
+  <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5] %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+  <% end %>
+
+<%= link_to "Cancel and go back to car", car_path(@car.id) %>

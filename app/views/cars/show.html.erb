@@ -10,3 +10,16 @@
 <%= @car.min_age %>
 <%= @car.year %>
 <%= @car.kilometers %>
+<br>
+<h2>Reviews</h2>
+<br>
+<% @reviews.each do |review| %>
+<%= review.rating %> --
+<%= review.description %><br>
+<% end %>
+
+<!-- This is only right now till we found a good place to put this link! (link to add a review) -->
+
+<%= link_to "Add review", new_car_review_path(@car.id) %>
+
+<%= link_to "Go back to list", cars_path %>

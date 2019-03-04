@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create!(email: "tester@test.com", password: "test123")
+
+user123 = User.create!(email: "tester@test.com", password: "test123", password_confirmation: "test123")
 
 10.times do |i|
   car = Car.new
@@ -22,6 +23,15 @@ user = User.create!(email: "tester@test.com", password: "test123")
   car.min_age = 25
   car.year = 2018
   car.kilometers = 102_938
-  car.user = user
+  car.user = user123
   car.save!
+  booking = Booking.new
+  booking.start_date = Date.new(2018, 11, 20).to_time
+  booking.end_date = Date.new(2018, 11, 27).to_time
+  booking.user = user123
+  booking.car = car
+  booking.status = true
+  booking.save!
 end
+
+
