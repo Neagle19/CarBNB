@@ -1,9 +1,11 @@
 <h1>Cars</h1>
 
 <% @cars.each do |car| %>
-  <%= car.name %><br>
-  <%= car.description %><br>
-  <%= car.location %><br>
-  <%= car.price %><br>
-  <br><br>
+  <%= link_to car_path(car.id) do %>
+    <%= car.name %><br>
+    <%= car.description %><br>
+    <%= car.location %><br>
+    <%= car.price %><br>
+    <br>
+  <% end %>
 <% end %>
