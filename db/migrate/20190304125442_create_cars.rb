@@ -16,6 +16,7 @@ class CreateCars < ActiveRecord::Migration[5.2]
       t.integer :year
       t.integer :kilometers
 
+
       t.timestamps
     end
   end
