@@ -32,6 +32,13 @@ user123 = User.create!(email: "tester@test.com", password: "test123", password_c
   booking.car = car
   booking.status = true
   booking.save!
+  review = Review.new
+  review.rating = Random.rand(0..5)
+  review.description = "Good or bad I dont know"
+  review.car = car
+  review.booking = booking
+  review.user = user123
+  review.save
 end
 
 
