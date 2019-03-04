@@ -1,0 +1,37 @@
+$height: 55px;
+
+body {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.container-navbar {
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  height: $height;
+  margin-bottom: 20px;
+}
+
+.container-buttons {
+  display: flex;
+}
+
+.btn-navbar {
+  margin-right: 20px;
+  line-height: $height;
+  text-decoration: none;
+  color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.logo {
+  margin-left: 20px;
+}
+
+.btn-active {
+  border-bottom: solid;
+
+}
