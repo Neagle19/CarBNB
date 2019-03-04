@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  location: MyString
+  description: MyString
+  capacity: 1
+  price: 1
+  user: one
+  make: MyString
+  model: MyString
+  ac: false
+  fuel: MyString
+  consumption: MyString
+  min_age: 1
+  year: 1
+  kilometers: 1
+
+two:
+  name: MyString
+  location: MyString
+  description: MyString
+  capacity: 1
+  price: 1
+  user: two
+  make: MyString
+  model: MyString
+  ac: false
+  fuel: MyString
+  consumption: MyString
+  min_age: 1
+  year: 1
+  kilometers: 1

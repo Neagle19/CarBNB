@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  car: one
+  start_date: 2019-03-04 13:56:57
+  end_date: 2019-03-04 13:56:57
+  status: false
+
+two:
+  user: two
+  car: two
+  start_date: 2019-03-04 13:56:57
+  end_date: 2019-03-04 13:56:57
+  status: false
