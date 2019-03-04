@@ -12,6 +12,7 @@ body {
   justify-content: space-between;
   height: $height;
   margin-bottom: 20px;
+  position: relative;
 }
 
 .container-buttons {
@@ -29,9 +30,12 @@ body {
 
 .logo {
   margin-left: 20px;
+  height: ($height)-25;
+  width: ($height*2)-50;
+  margin-top: 12.5px;
 }
 
 .btn-active {
   border-bottom: solid;
-
+  border-width: 2px;
 }

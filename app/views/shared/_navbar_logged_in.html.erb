@@ -1,0 +1,16 @@
+  <!-- check if it has to be underlined -->
+<% def current_class?(test_path) %>
+  <% return ' btn-active' if request.path == test_path %>
+  <% ' ' %>
+<% end %>
+
+<!-- Still need to define landing_page path -->
+
+<div class="container-navbar">
+  <%= image_tag "logo_car.png", class: "logo" %>
+  <div class="container-buttons">
+    <%= link_to "Home", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
+    <%= link_to "Profile", edit_user_registration_path, class: "btn-navbar #{current_class?(edit_user_registration_path)}" %>
+    <%= link_to "Log out", destroy_user_session_path, method: 'delete', class: "btn-navbar " %>
+  </div>
+</div>
