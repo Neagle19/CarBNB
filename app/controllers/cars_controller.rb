@@ -15,8 +15,6 @@ class CarsController < ApplicationController
        average =  car.reviews.inject(0){|sum,x| sum + x.rating } / car.reviews.length
        collect_cars[car.id] = [average, car]
     end
-    p "-"*50
-    p collect_cars
     @car_top = collect_cars.sort_by { |_k, v| v[0] }.reverse.first(5)
 
   end
