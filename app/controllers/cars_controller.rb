@@ -25,7 +25,6 @@ class CarsController < ApplicationController
        collect_cars[car.id] = [average, car]
     end
     @car_top = collect_cars.sort_by { |_k, v| v[0] }.reverse.first(5)
-
   end
 
   private
