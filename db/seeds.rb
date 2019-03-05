@@ -8,6 +8,14 @@
 
 user123 = User.create!(email: "tester@test.com", password: "test123", password_confirmation: "test123")
 
+url_list_cars = [
+  'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg',
+  'https://res.cloudinary.com/discwhk4f/image/upload/v1551790265/Lam1_trans_NvBQzQNjv4BqnAdySV0BR-4fDN_-_p756cVfcy8zLGPV4EhRkjQy7tg.jpg',
+  'https://res.cloudinary.com/discwhk4f/image/upload/v1551790411/new_alfa_romeo_8c_09.jpg',
+  'https://res.cloudinary.com/discwhk4f/image/upload/v1551790484/ferrari-488-spider.jpg',
+'https://res.cloudinary.com/discwhk4f/image/upload/v1551790752/18nbgrzzzl56cjpg.jpg'
+]
+
 10.times do |i|
   car = Car.new
   car.name = "Diego's ferrari #{i}"
@@ -24,7 +32,7 @@ user123 = User.create!(email: "tester@test.com", password: "test123", password_c
   car.year = 2018
   car.kilometers = 102_938
   car.user = user123
-  car.remote_photo_url = 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg'
+  car.remote_photo_url = url_list_cars.sample
   car.save!
   booking = Booking.new
   booking.start_date = Date.new(2018, 11, 20).to_time
