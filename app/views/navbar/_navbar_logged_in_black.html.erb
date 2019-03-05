@@ -12,5 +12,6 @@
     <%= link_to "Home", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
     <%= link_to "Profile", edit_user_registration_path, class: "btn-navbar #{current_class?(edit_user_registration_path)}" %>
     <%= link_to "Log out", destroy_user_session_path, method: 'delete', class: "btn-navbar " %>
+    <%= cl_image_tag current_user.photo , class: "avatar" %>
   </div>
 </div>
