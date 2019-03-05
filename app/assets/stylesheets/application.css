@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+/*expand image uponclick (TZ)*/
+.img-expand {
+    width: 120%;
+ }
+
+
+.class-card:hover{
+        width: 120%;
+        font-size: 20px;
+ }
