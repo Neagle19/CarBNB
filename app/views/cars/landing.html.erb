@@ -2,4 +2,12 @@
   <div class="title">
     <h1 class="landing-title">WELCOME TO CARBNB</h1>
   </div>
+
+  <div class="search-bar">
+    <h4>Look for your car:</h4>
+    <%= form_tag(cars_path, method: :get) do%>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag ("Search"), make: nil %>
+      <% end %>
+  </div>
 </div>
