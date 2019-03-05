@@ -17,7 +17,22 @@ class CarsController < ApplicationController
     @reviews = Review.where(car_id: @car.id)
   end
 
-  def top
+# TZ added
+  def new
+    @car = Car.new
+  end
+
+    def create
+    @car = Car.new car_params
+    @car.user = current_user
+    if @car.save!
+      redirect_to car_path(@car)
+    else
+      render :new
+    end
+  end
+  
+    def top
     cars = Car.all
     collect_cars = {}
     cars.each do |car|
@@ -27,9 +42,12 @@ class CarsController < ApplicationController
     @car_top = collect_cars.sort_by { |_k, v| v[0] }.reverse.first(5)
   end
 
+# TZ private
   private
 
   def car_params
-    params.require(:car).permit(:name, :make, :model, :location, :search)
+    params.require(:car).permit(:name, :location, :description, :capacity, :price, :user_id, :make, :model, :ac, :fuel, :consumption, :min_age, :search, :year, :kilometers, :photo, :photo_cache)
+
   end
 end
+
