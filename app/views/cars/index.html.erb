@@ -1,5 +1,7 @@
 <h1>Cars</h1>
 
+<%= link_to "Click here to see our top rated cars", car_top_path(@cars) %>
+
 <% @cars.each do |car| %>
   <%= link_to car_path(car.id) do %>
     <%= car.name %><br>
