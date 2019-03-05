@@ -13,12 +13,11 @@ class CarsController < ApplicationController
     collect_cars = {}
     cars.each do |car|
        average =  car.reviews.inject(0){|sum,x| sum + x.rating } / car.reviews.length
-       collect_cars[car.id] = average
+       collect_cars[car.id] = [average, car]
     end
-    top_hash = collect_cars.sort.reverse.first(5)
-    @car_top = []
-    top_hash.each do |top_car, value|
-        @car_top << Car.find(top_car)
-    end
+    p "-"*50
+    p collect_cars
+    @car_top = collect_cars.sort_by { |_k, v| v[0] }.reverse.first(5)
+
   end
 end
