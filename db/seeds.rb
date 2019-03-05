@@ -24,6 +24,7 @@ user123 = User.create!(email: "tester@test.com", password: "test123", password_c
   car.year = 2018
   car.kilometers = 102_938
   car.user = user123
+  car.remote_photo_url = 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg'
   car.save!
   booking = Booking.new
   booking.start_date = Date.new(2018, 11, 20).to_time
