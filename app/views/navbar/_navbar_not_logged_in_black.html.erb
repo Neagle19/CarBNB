@@ -7,7 +7,9 @@
 
 
 <div class="container-navbar">
-  <%= image_tag "logo_car.png", class: "logo" %>
+  <%= link_to root_path do %>
+    <%= image_tag "logo_car.png", class: "logo" %>
+  <% end %>
   <div class="container-buttons">
     <%= link_to "Sign up", new_user_registration_path, class: "btn-navbar #{current_class?(new_user_registration_path)}" %>
     <%= link_to "Login", new_user_session_path, class: "btn-navbar #{current_class?(new_user_session_path)}" %>

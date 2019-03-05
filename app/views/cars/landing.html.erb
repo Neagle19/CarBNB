@@ -1,0 +1,18 @@
+<div class="landing">
+  <div class="title">
+    <h1 class="landing-title">WELCOME TO CARBNB</h1>
+  </div>
+
+  <div class="search-bar">
+    <h2>Find cars everywhere on CarBNB</h2>
+    <p>Discover innovative cars in your favorite place for the perfect trip</p>
+
+      <%= form_tag(cars_path, method: :get) do%>
+      <%= text_field_tag(:search, params[:search]) %><br>
+      <%= submit_tag ("Search"), make: nil, id: "submit-button" %>
+
+
+      <% end %>
+
+  </div>
+</div>

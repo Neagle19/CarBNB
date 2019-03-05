@@ -8,7 +8,7 @@
     <div class="cards">
       <% @cars.each do |car| %>
         <div class="card">
-          <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.1) 0%, rgba(0,36,61,0.4) 80%), url('../../assets/images/Ferrari.jpg');">
+          <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.1) 0%, rgba(0,36,61,0.4) 80%), <%= cl_image_tag(car.photo) %>;">
             <div class="card-link">
               <%= link_to car_path(car.id) do %>
               <div class="card-name">

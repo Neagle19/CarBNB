@@ -1,0 +1,45 @@
+/* line 3, /Users/Diegosav/code/CarBNB/app/assets/stylesheets/navbar.scss */
+body {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+/* line 9, /Users/Diegosav/code/CarBNB/app/assets/stylesheets/navbar.scss */
+.container-navbar {
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+  height: 55px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* line 18, /Users/Diegosav/code/CarBNB/app/assets/stylesheets/navbar.scss */
+.container-buttons {
+  display: flex;
+}
+
+/* line 22, /Users/Diegosav/code/CarBNB/app/assets/stylesheets/navbar.scss */
+.btn-navbar {
+  margin-right: 20px;
+  line-height: 55px;
+  text-decoration: none;
+  color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* line 31, /Users/Diegosav/code/CarBNB/app/assets/stylesheets/navbar.scss */
+.logo {
+  margin-left: 20px;
+  height: 30px;
+  width: 60px;
+  margin-top: 12.5px;
+}
+
+/* line 38, /Users/Diegosav/code/CarBNB/app/assets/stylesheets/navbar.scss */
+.btn-active {
+  border-bottom: solid;
+  border-width: 2px;
+}

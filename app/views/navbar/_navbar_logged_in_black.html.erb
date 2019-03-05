@@ -4,10 +4,10 @@
   <% ' ' %>
 <% end %>
 
-<!-- Still need to define landing_page path -->
-
 <div class="container-navbar">
-  <%= image_tag "logo_car.png", class: "logo" %>
+  <%= link_to root_path do %>
+    <%= image_tag "logo_car.png", class: "logo" %>
+  <% end %>
   <div class="container-buttons">
     <%= link_to "Home", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
     <%= link_to "Profile", edit_user_registration_path, class: "btn-navbar #{current_class?(edit_user_registration_path)}" %>
