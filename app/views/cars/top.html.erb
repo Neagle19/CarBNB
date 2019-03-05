@@ -1,0 +1,9 @@
+<h2>These are our top rated cars:</h2>
+
+<ul>
+  <% @car_top.each do |k , car| %>
+  <li><p><%= car[1].name %>  -- average <%= car[0] %></p></li>
+  <% end %>
+</ul>
+
+<p><%= link_to "Go back home", cars_path %></p>

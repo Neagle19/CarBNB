@@ -1,0 +1,16 @@
+/* line 2, /Users/Diegosav/code/CarBNB/app/assets/stylesheets/landing.scss */
+.landing {
+  background-image: url(/assets/cars-eefc92dfcbe7772f85f28da546657a3e3cac7a8a80d7d48115cc49124a5b9075.png);
+  background-size: cover;
+  margin: 0;
+  height: 100%;
+  position: absolute;
+  weight: 100%;
+}
+
+/* line 11, /Users/Diegosav/code/CarBNB/app/assets/stylesheets/landing.scss */
+h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+}

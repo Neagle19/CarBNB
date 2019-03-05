@@ -1,0 +1,25 @@
+  <style>
+    .btn-navbar {
+      color: white;
+    }
+    .logo {
+      filter: invert(100%);
+    }
+  </style>
+
+  <!-- check if it has to be underlined -->
+<% def current_class?(test_path) %>
+  <% return ' btn-active' if request.path == test_path %>
+  <% ' ' %>
+<% end %>
+
+
+<div class="container-navbar">
+  <%= link_to root_path do %>
+    <%= image_tag "logo_car.png", class: "logo" %>
+  <% end %>
+  <div class="container-buttons">
+    <%= link_to "Sign up", new_user_registration_path, class: "btn-navbar #{current_class?(new_user_registration_path)}" %>
+    <%= link_to "Login", new_user_session_path, class: "btn-navbar #{current_class?(new_user_session_path)}" %>
+  </div>
+</div>
