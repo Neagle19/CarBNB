@@ -1,13 +1,45 @@
-<h1>Cars</h1>
 
-<%= link_to "Click here to see our top rated cars", car_top_path(@cars) %>
+<div class="wrapper" text-align="center">
+  <h1>Cars</h1>
+  <br>
+  <br>
+  <p><%= link_to "Click here to see our top rated cars", car_top_path(@cars) %></p>
+  <div class="container">
+    <div class="cards">
+      <% @cars.each do |car| %>
+        <div class="card">
+          <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.1) 0%, rgba(0,36,61,0.4) 80%), url('../../assets/images/Ferrari.jpg');">
+            <div class="card-link">
+              <%= link_to car_path(car.id) do %>
+              <div class="card-name">
+                <%= car.name %><br>
+              </div>
+              <div class="card-description">
+                <%= car.description %><br>
+              </div>
+              <div class="card-location">
+                <%= car.location %><br>
+              </div>
+              <div class="card-price">
+                <%= car.price %><br>
+              </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="card-date">
+              <p>Posted on 03/02/2019</p>
+            </div>
+            <div class="card-links">
+              <a href="#"><i class="fas fa-heart"></i></a>
+              <a href="#"><i class="fas fa-question-circle"></i></a>
+              <a href="#"><i class="far fa-comment-alt"></i></a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<% @cars.each do |car| %>
-  <%= link_to car_path(car.id) do %>
-    <%= car.name %><br>
-    <%= car.description %><br>
-    <%= car.location %><br>
-    <%= car.price %><br>
-    <br>
-  <% end %>
-<% end %>
