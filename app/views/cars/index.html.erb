@@ -1,45 +1,38 @@
 
 <div class="wrapper" text-align="center">
-  <h1>Cars</h1>
-  <br>
-  <br>
   <p><%= link_to "Click here to see our top rated cars", car_top_path(@cars) %></p>
   <div class="container">
     <div class="cards">
       <% @cars.each do |car| %>
+        <%= link_to car_path(car) do %>
         <div class="card">
-          <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.1) 0%, rgba(0,36,61,0.4) 80%), url(<%= cl_image_path(car.photo) %>);">
+          <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.6) 80%), url(<%= cl_image_path(car.photo) %>);">
             <div class="card-link">
-              <%= link_to car_path(car.id) do %>
               <div class="card-name">
                 <%= car.name %><br>
-              </div>
-              <div class="card-description">
-                <%= car.description %><br>
               </div>
               <div class="card-location">
                 <%= car.location %><br>
               </div>
-              <div class="card-price">
-                <%= car.price %><br>
-              </div>
-              <% end %>
             </div>
           </div>
           <div class="card-footer">
             <div class="card-date">
               <p>Posted on 03/02/2019</p>
             </div>
-            <div class="card-links">
-              <a href="#"><i class="fas fa-heart"></i></a>
-              <a href="#"><i class="fas fa-question-circle"></i></a>
-              <a href="#"><i class="far fa-comment-alt"></i></a>
+            <div class="card-average">
+              <%= raw " <i class='fas fa-star'></i> " * car.gimme_average %>
+            </div>
+            <div class="card-price">
+              <a><%= car.price %></a>
             </div>
           </div>
         </div>
+        <% end %>
       <% end %>
       </div>
     </div>
   </div>
 </div>
+
 
