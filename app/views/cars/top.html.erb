@@ -5,7 +5,7 @@
     <% @car_top.each do |k, car| %>
      <%= link_to car_path(car) do %>
       <div class="card">
-        <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.1) 0%, rgba(0,36,61,0.4) 80%), url(<%= cl_image_path(car[1].photo) %>);">
+        <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.6) 80%), url(<%= cl_image_path(car[1].photo) %>);">
           <div class="card-link">
             <div class="card-name">
               <%= car[1].name %> -- average <%= car[0] %><br>
