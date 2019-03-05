@@ -18,4 +18,9 @@ class Car < ApplicationRecord
   # validates :kilometers, presence: true
   # validates :year, presence: true
   mount_uploader :photo, PhotoUploader
+
+
+  def gimme_average
+    self.reviews.inject(0){|sum,x| sum + x.rating } / self.reviews.length
+  end
 end
