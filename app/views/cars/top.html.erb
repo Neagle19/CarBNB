@@ -1,9 +1,41 @@
-<h2>These are our top rated cars:</h2>
 
-<ul>
-  <% @car_top.each do |k , car| %>
-  <li><p><%= car[1].name %>  -- average <%= car[0] %></p></li>
-  <% end %>
-</ul>
 
 <p><%= link_to "Go back home", cars_path %></p>
+<h2>These are the top rated cars:</h2>
+
+<div class="container">
+  <div class="cards">
+    <% @car_top.each do |k, car| %>
+      <div class="card">
+        <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.1) 0%, rgba(0,36,61,0.4) 80%), url(<%= cl_image_path(car[1].photo) %>);">
+          <div class="card-link">
+            <%= link_to car_path(car[1].id) do %>
+              <div class="card-name">
+                <%= car[1].name %> -- average <%= car[0] %><br>
+              </div>
+              <div class="card-description">
+                <%= car[1].description %><br>
+              </div>
+              <div class="card-location">
+                <%= car[1].location %><br>
+              </div>
+              <div class="card-price">
+                <%= car[1].price %><br>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="card-date">
+            <p>Posted on 03/02/2019</p>
+          </div>
+          <div class="card-links">
+            <a href="#"><i class="fas fa-heart"></i></a>
+            <a href="#"><i class="fas fa-question-circle"></i></a>
+            <a href="#"><i class="far fa-comment-alt"></i></a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
