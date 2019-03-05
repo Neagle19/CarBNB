@@ -1,0 +1,9 @@
+<h2>These are our top rated cars:</h2>
+
+<ul>
+  <% @car_top.each do |car| %>
+  <li><p><%= car.name %></p></li>
+  <% end %>
+</ul>
+
+<p><%= link_to "Go back home", cars_path %></p>

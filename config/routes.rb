@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root 'cars#index'
   resources :cars, only:[:show, :index] do
     resources :reviews, only:[:new, :create]
+    get "top", to: "cars#top"
   end
 end
