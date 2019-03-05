@@ -1,3 +1,12 @@
+<style>
+  .container-navbar {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    background-color: white;
+  }
+</style>
+
   <!-- check if it has to be underlined -->
 <% def current_class?(test_path) %>
   <% return ' btn-active' if request.path == test_path %>
