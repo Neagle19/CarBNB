@@ -1,0 +1,9 @@
+<% if user_signed_in? && request.path == root_path %>
+      <%= render 'navbar/navbar_logged_in_white' %>
+    <% elsif user_signed_in? %>
+      <%= render 'navbar/navbar_logged_in_black' %>
+    <% elsif request.path == root_path %>
+    <%= render 'navbar/navbar_not_logged_in_white' %>
+    <% else %>
+    <%= render 'navbar/navbar_not_logged_in_black' %>
+  <% end %>
