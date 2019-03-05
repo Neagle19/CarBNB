@@ -6,14 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user123 = User.create!(email: "tester@test.com", password: "test123", password_confirmation: "test123")
+user123 = User.create!(
+  email: "tester@test.com",
+  password: "test123",
+  password_confirmation: "test123"
+)
 
 url_list_cars = [
   'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg',
   'https://res.cloudinary.com/discwhk4f/image/upload/v1551790265/Lam1_trans_NvBQzQNjv4BqnAdySV0BR-4fDN_-_p756cVfcy8zLGPV4EhRkjQy7tg.jpg',
   'https://res.cloudinary.com/discwhk4f/image/upload/v1551790411/new_alfa_romeo_8c_09.jpg',
   'https://res.cloudinary.com/discwhk4f/image/upload/v1551790484/ferrari-488-spider.jpg',
-'https://res.cloudinary.com/discwhk4f/image/upload/v1551790752/18nbgrzzzl56cjpg.jpg'
+  'https://res.cloudinary.com/discwhk4f/image/upload/v1551790752/18nbgrzzzl56cjpg.jpg'
 ]
 
 10.times do |i|
