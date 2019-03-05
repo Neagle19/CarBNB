@@ -23,5 +23,40 @@
   position: relative;
   text-align: center;
   top: 200px;
+}
 
+.search-bar {
+  position: relative;
+  top: 230px;
+  left: 50px;
+  background-color: #FEFEFE;
+  border-radius: 10px;
+  width: 275px;
+  height: 185px;
+  margin-bottom: 64px;
+  padding-top: 10px;
+  padding-left: 32px;
+  padding-right: 10px;
+  padding-bottom: 50px;
+  color: gray;
+}
+
+
+#submit-button {
+  background: #FF5A5F;
+  margin-top: 10px;
+  height: 25px;
+  width: 100px;
+  border-radius: 20px;
+  color: white;
+  margin-left: 50px;
+  font-size: 15px;
+
+}
+
+#search {
+  border-radius: 20px;
+  position: center;
+  height: 25px;
+  width: 200px;
 }
