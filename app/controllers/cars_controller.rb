@@ -1,4 +1,7 @@
 class CarsController < ApplicationController
+  def landing
+  end
+
   def index
     @cars = Car.all
   end
