@@ -10,7 +10,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(check_review_params)
     @review.user = current_user
     @review.car = Car.find(params[:car_id])
-    @review.booking = Booking.where(car_id: Car.find(params[:car_id]))[0]
+    # @review.booking = Booking.where(car_id: Car.find(params[:car_id]))[0]
+    puts @review
     if @review.save
       redirect_to car_path(@review.car.id)
     else
