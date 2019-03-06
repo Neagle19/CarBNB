@@ -4,9 +4,21 @@ class CarsController < ApplicationController
 
   def index
     if params[:search]
-      @cars = Car.where('lower(name)LIKE :search OR lower(make) LIKE :search OR lower(location) LIKE :search OR lower(model) LIKE :search', search: "%#{params[:search].downcase}%" )
+      @cars = Car.where('lower(name) LIKE :search OR lower(make) LIKE :search OR lower(location) LIKE :search OR lower(model) LIKE :search', search: "%#{params[:search].downcase}%" )
+      collect_cars = {}
+      @cars.each do |car|
+        average =  car.gimme_average
+        collect_cars[car.id] = [average, car]
+        end
+        @cars = collect_cars.sort_by { |_k, v| v[0] }.reverse
     else
       @cars = Car.all
+      collect_cars = {}
+      @cars.each do |car|
+        average =  car.gimme_average
+        collect_cars[car.id] = [average, car]
+      end
+      @cars = collect_cars.sort_by { |_k, v| v[0] }.reverse
     end
 
     # Item.where('game_name LIKE :search OR genre LIKE :search OR console LIKE :search', search: "%#{search}%")
@@ -32,7 +44,7 @@ class CarsController < ApplicationController
     end
   end
 
-    def top
+  def top
     cars = Car.all
     collect_cars = {}
     cars.each do |car|
