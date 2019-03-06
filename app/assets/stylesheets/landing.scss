@@ -27,11 +27,11 @@
 
 .search-bar {
   position: relative;
-  top: 230px;
+  bottom: -400px;
   left: 50px;
   background-color: #FEFEFE;
   border-radius: 10px;
-  width: 275px;
+  width: 450px;
   height: 185px;
   margin-bottom: 64px;
   padding-top: 10px;
@@ -45,18 +45,13 @@
 #submit-button {
   background: #FF5A5F;
   margin-top: 10px;
-  height: 25px;
-  width: 100px;
+  height: 40px;
+  width: 200px;
   border-radius: 20px;
   color: white;
-  margin-left: 50px;
-  font-size: 15px;
+  margin-left: 100px;
+  font-size: 20px;
+  font-weight: lighter;
 
 }
 
-#search {
-  border-radius: 20px;
-  position: center;
-  height: 25px;
-  width: 200px;
-}

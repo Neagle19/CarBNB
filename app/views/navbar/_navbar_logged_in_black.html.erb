@@ -13,9 +13,16 @@
 <% end %>
 
 <div class="container-navbar">
-  <%= link_to root_path do %>
-    <%= image_tag "logo_car.png", class: "logo" %>
-  <% end %>
+  <div class="left-size">
+    <%= link_to root_path do %>
+      <%= image_tag "logo_car.png", class: "logo" %>
+    <% end %>
+    <div class="search-form">
+      <%= form_tag(cars_path, method: :get) do%>
+        <%= text_field_tag(:search, params[:search]) %>
+        <% end %>
+    </div>
+  </div>
   <div class="container-buttons">
     <%= link_to "Home", root_path, class: "btn-navbar #{current_class?(root_path)}" %>
     <%= link_to "Profile", edit_user_registration_path, class: "btn-navbar #{current_class?(edit_user_registration_path)}" %>
