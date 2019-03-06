@@ -1,5 +1,10 @@
-
-
-<%= cl_image_tag car.photo, width: 50 %>
-<p> hello g </p>
-<%= car.description %>
+<div class="no-deco">
+<%= link_to car_path(car.id) do %>
+  <div>
+  <%= cl_image_tag car.photo, width: 90 %>
+  <p class="info-window-name"><b><%= car.name %></b></p>
+  <%= raw " <i class='info-window-name fas fa-star'></i> " * car.gimme_average %>
+  <p class="info-window-name"><%= car.price %>$/day</p>
+  </div>
+<% end %>
+</div>
