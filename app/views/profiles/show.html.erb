@@ -1,0 +1,49 @@
+
+<div class="profile-info">
+  <%= cl_image_tag @user.photo, class: "profile-picture" %>
+  <p class="profile-name"><b>Name:</b> <%= @user.first_name %> <%= @user.last_name %></p>
+  <p><b>Located in:</b> <%= @user.location %></p>
+  <p><b>About:</b> <%= @user.description %></p>
+  <% if current_user == @user %>
+  <div class="hidden-info">
+    <p>You have <b><%= @user.balance %>$</b> at the moment.</p><br>
+    <%= link_to "Add 50 dollars", add50_path, class: "btn-profile" %><br>
+    <%= link_to "Add new car", new_car_path, class: "btn-profile"  %>
+    </div>
+  <% end %>
+  <p><b>Contact me at:</b> <%= @user.email %></p>
+</div>
+
+
+<div class="container-profile">
+    <div class="cards">
+      <% @cars.each do |car| %>
+        <%= link_to car_path(car) do %>
+        <div class="card">
+          <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.6) 80%), url(<%= cl_image_path(car.photo) %>);">
+            <div class="card-link">
+              <div class="card-name">
+                <%= car.name %><br>
+              </div>
+              <div class="card-location">
+                <%= car.location %><br>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="card-date">
+              <p>Posted on 03/02/2019</p>
+            </div>
+            <div class="card-average">
+              <%= raw " <i class='fas fa-star'></i> " * car.gimme_average %>
+            </div>
+            <div class="card-price">
+              <a><%= car.price %></a>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+

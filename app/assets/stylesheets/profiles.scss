@@ -1,0 +1,48 @@
+// Place all the styles related to the profiles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.profile-picture {
+  width: 150px;
+  border-radius: 50%;
+  align-self: center
+}
+
+.profile-name{
+  align-self:center
+}
+
+.container-profile {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  width: 50%;
+}
+
+.profile-info {
+  min-height: 500px;
+  width: 50%;
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-weight: 100;
+  text-align: center;
+
+}
+
+.hidden-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.btn-profile {
+  color: white;
+  background-color: #EA565C;
+  border-radius: 5px;
+}
