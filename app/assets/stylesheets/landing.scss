@@ -1,6 +1,6 @@
 
 .landing {
-  background-image: linear-gradient(to bottom, rgba(0,6,0,0.7) 0%,rgba(255,0,0,-0.35) 100%), asset-url('cars.png');
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.5) 100%), asset-url('cars.png');
   background-size: cover;
   margin: 0;
   height: 100%;
@@ -10,6 +10,7 @@
   right: 0;
   bottom: 0;
   z-index: -1;
+  color: white;
 
 }
 
@@ -21,17 +22,17 @@
 
 .title {
   position: relative;
-  text-align: center;
+  text-align: left;
   top: 200px;
+  font-weight: 100;
+  left: 82px;
 }
 
 .search-bar {
   position: relative;
-  bottom: -400px;
+  top: 147px;
   left: 50px;
-  background-color: white;
   border-radius: 4px;
-  box-shadow: rgba(0,0,0,0.12) 0px 16px 40px;
   width: 450px;
   height: 185px;
   margin-bottom: 64px;
@@ -39,18 +40,23 @@
   padding-left: 32px;
   padding-right: 10px;
   padding-bottom: 50px;
-  color: #242424;
+  font-weight: 100;
+  p {
+      margin-top: 7px;
+      margin-bottom: 10px;
+  }
 }
 
 .search-bar h2 {
-  font-weight: bold;
+  font-weight: 300;
   font-size: 25px;
+  margin-bottom: 0;
 }
 
 
 #submit-button {
   background: #FF5A5F;
-  margin-top: 10px;
+  margin-top: 8px;
   height: 40px;
   width: 150px;
   border-radius: 8px;
@@ -58,6 +64,11 @@
   margin-left: 130px;
   font-size: 20px;
   font-weight: lighter;
+}
 
+
+#search {
+  background-color: rgba(255,255,255,0.3);
+  box-shadow: none;
 }
 
