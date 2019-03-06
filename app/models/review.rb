@@ -7,5 +7,4 @@ class Review < ApplicationRecord
   validates :car, presence: true
   validates :user, presence: true
   validates :description, presence: true
-  validates :booking, presence: true
 end
