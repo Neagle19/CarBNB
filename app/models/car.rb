@@ -9,7 +9,7 @@ class Car < ApplicationRecord
   validates :capacity, numericality: { only_integer: true }, presence: true
   validates :price, numericality: { only_integer: true }, presence: true
   validates :make, presence: true
-  validates :ac, presence: true
+  # validates :ac, presence: true
   validates :fuel, presence: true
   validates :consumption, presence: true
   validates :user, presence: true
