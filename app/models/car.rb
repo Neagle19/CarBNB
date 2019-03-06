@@ -21,6 +21,10 @@ class Car < ApplicationRecord
 
 
   def gimme_average
-    self.reviews.inject(0){|sum,x| sum + x.rating } / self.reviews.length
+    if self.reviews.any?
+      self.reviews.inject(0){|sum,x| sum + x.rating } / self.reviews.length
+    else
+      0
+    end
   end
 end
