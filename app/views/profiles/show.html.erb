@@ -1,17 +1,19 @@
-
 <div class="profile-info">
   <%= cl_image_tag @user.photo, class: "profile-picture" %>
   <p class="profile-name"><b>Name:</b> <%= @user.first_name %> <%= @user.last_name %></p>
   <p><b>Located in:</b> <%= @user.location %></p>
   <p><b>About:</b> <%= @user.description %></p>
+  <p><b>Contact me at:</b> <%= @user.email %></p>
   <% if current_user == @user %>
   <div class="hidden-info">
     <p>You have <b><%= @user.balance %>$</b> at the moment.</p><br>
     <%= link_to "Add 50 dollars", add50_path, class: "btn-profile" %><br>
     <%= link_to "Add new car", new_car_path, class: "btn-profile"  %>
-    </div>
+  </div>
+  <div class="center-self">
+  <%= link_to "Edit info",edit_user_registration_path,class: "edit-profile-btn" %>
+  </div>
   <% end %>
-  <p><b>Contact me at:</b> <%= @user.email %></p>
 </div>
 
 
@@ -38,7 +40,7 @@
               <%= raw " <i class='fas fa-star'></i> " * car.gimme_average %>
             </div>
             <div class="card-price">
-              <a><%= car.price %></a>
+              <a>€<%= car.price %>/day</a>
             </div>
           </div>
         </div>
