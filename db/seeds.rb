@@ -9,7 +9,12 @@
 user123 = User.create!(
   email: "tester@test.com",
   password: "test123",
-  password_confirmation: "test123"
+  password_confirmation: "test123",
+  first_name: "Dirk",
+  last_name: "Vercammen",
+  location: "Brussels",
+  description: "Waddup, I love fast cars and I want to rent them to you!",
+  remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg'
 )
 
 url_list_cars = [
