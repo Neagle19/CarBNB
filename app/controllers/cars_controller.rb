@@ -4,7 +4,7 @@ class CarsController < ApplicationController
 
   def index
     if params[:search]
-      @cars = Car.where('lower(name) LIKE :search OR lower(make) LIKE :search OR lower(location) LIKE :search OR lower(model) LIKE :search', search: "%#{params[:search].downcase}%" )
+      @cars = Car.where('lower(name)LIKE :search OR lower(make) LIKE :search OR lower(location) LIKE :search OR lower(model) LIKE :search', search: "%#{params[:search].downcase}%" )
     else
       @cars = Car.all
     end
