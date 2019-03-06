@@ -1,9 +1,40 @@
-<h2>These are our top rated cars:</h2>
+<h2>These are the top rated cars:</h2>
 
-<ul>
-  <% @car_top.each do |k , car| %>
-  <li><p><%= car[1].name %>  -- average <%= car[0] %></p></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="cards">
+    <% @car_top.each do |k, car| %>
+     <%= link_to car_path(car) do %>
+      <div class="card">
+        <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.6) 80%), url(<%= cl_image_path(car[1].photo) %>);">
+          <div class="card-link">
+            <div class="card-name">
+              <%= car[1].name %> -- average <%= car[0] %><br>
+            </div>
+            <div class="card-location">
+              <%= car[1].location %><br>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+        <div class="card-footer">
+          <div class="card-date">
+            <p>Posted on 03/02/2019</p>
+          </div>
+          <div class="card-average">
+            <%= raw " <i class='fas fa-star'></i> " * car[1].gimme_average %>
+          </div>
+          <div class="card-price">
+            <a><%= car[1].price %></a>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
 <p><%= link_to "Go back home", cars_path %></p>
