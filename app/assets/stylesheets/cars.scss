@@ -12,6 +12,16 @@
   // flex: 1 1 auto;
 }
 
+.cards-profile {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: 'Raleway', sans-serif;
+  height: 70vh;
+  width: 100vw;
+  // flex: 1 1 auto;
+}
+
 .mapboxgl-popup-content {
   -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.64);
   -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.64);
@@ -126,7 +136,6 @@ a {
   margin-top: -20px;
   margin-bottom: 0px;
   padding-bottom: 25px;
-  margin-left: 20px
 }
 
 .card:hover {
