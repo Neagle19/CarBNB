@@ -8,9 +8,12 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(check_review_params)
-    @review.user = User.last
+    @review.user = current_user
     @review.car = Car.find(params[:car_id])
-    @review.booking = Booking.where(car_id: Car.find(params[:car_id]))[0]
+    @review.booking = Booking.last
+    # change the Booking.last to Booking.where(car_id: Car.find(params[:car_id]))[0] once we have bookings
+    p "-"*40
+    p @review
     if @review.save
       redirect_to car_path(@review.car.id)
     else

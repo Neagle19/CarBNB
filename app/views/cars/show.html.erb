@@ -1,25 +1,47 @@
-<%= @car.name %>
-<%= @car.description %>
-<%= @car.capacity %>
-<%= @car.price %>
-<%= @car.make %>
-<%= @car.model %>
-<%= @car.ac %>
-<%= @car.fuel %>
-<%= @car.consumption %>
-<%= @car.min_age %>
-<%= @car.year %>
-<%= @car.kilometers %>
+
+
+<div class="container-show">
+  <div class="title-show" >
+    <h2><%= @car.name %> Details</h2>
+  </div>
+  <div class="cards">
+    <div class="show-card">
+      <ul>
+        <li><strong>Car Name: </strong><%= @car.name %></li>
+        <li><strong>Car Description: </strong><%= @car.description %></li>
+        <li><strong>Year: </strong><%= @car.year %></li>
+        <li><strong>Make: </strong><%= @car.make %></li>
+        <li><strong>Model: </strong><%= @car.model %></li>
+        <li><strong>Total Kilometers: </strong><%= @car.kilometers %></li>
+        <li><strong>Capacity: </strong><%= @car.capacity %></li>
+        <li><strong>Air Conditioning? </strong><%= @car.ac ? "Yes" : "No" %></li>
+        <li><strong>Fuel Type: </strong><%= @car.fuel %></li>
+        <li><strong>Fuel Consumption: </strong><%= @car.consumption %></li>
+        <li><strong>Minimum Age Allowed to Book this Car: </strong><%= @car.min_age %></li>
+        <li><strong>Price: </strong><%= @car.price %></li>
+        <li><strong>Owner: </strong><%= link_to @car.user.first_name, profile_path(@car.user.id) %></li>
+      </ul>
+    </div>
+    <div class="photo-card">
+    <img src='<%= cl_image_path(@car.photo) %>' height="300" width="500">
+    </div>
+    </div>
+  </div>
+</div>
 <br>
-<h2>Reviews</h2>
+<div class="container-review">
+<h3 id="review-title"><%= "-" * 10 %> Reviews <%= "-" * 10 %></h3>
+<br>
 <br>
 <% @reviews.each do |review| %>
-<%= review.rating %> --
-<%= review.description %><br>
+<p class="review-show"><%= review.rating %> -- <%= review.user.first_name %>: <%= review.description %></p>
 <% end %>
+</div>
+<br>
 
-<!-- This is only right now till we found a good place to put this link! (link to add a review) -->
-
-<%= link_to "Add review", new_car_review_path(@car.id) %>
-
-<%= link_to "Go back to list", cars_path %>
+<div class="container-review">
+  <% if user_signed_in? %>
+    <%= link_to "Add review", new_car_review_path(@car.id), class: 'add-review-btn' %>
+  <% end %>
+  <%= link_to "Go back to list", cars_path, class: 'go-home-btn' %>
+</div>

@@ -9,8 +9,20 @@ class CarsController < ApplicationController
 
     if params[:search]
       @cars = Car.where('lower(name) LIKE :search OR lower(make) LIKE :search OR lower(location) LIKE :search OR lower(model) LIKE :search', search: "%#{params[:search].downcase}%" )
+      collect_cars = {}
+      @cars.each do |car|
+        average =  car.gimme_average
+        collect_cars[car.id] = [average, car]
+        end
+        @cars = collect_cars.sort_by { |_k, v| v[0] }.reverse
     else
       @cars = Car.all
+      collect_cars = {}
+      @cars.each do |car|
+        average =  car.gimme_average
+        collect_cars[car.id] = [average, car]
+      end
+      @cars = collect_cars.sort_by { |_k, v| v[0] }.reverse
     end
      @markers = @cars.where.not(latitude: nil, longitude: nil).map do |car|
       {
@@ -44,7 +56,11 @@ class CarsController < ApplicationController
   end
 
 
-    def top
+
+
+
+  def top
+
     cars = Car.all
     collect_cars = {}
     cars.each do |car|
