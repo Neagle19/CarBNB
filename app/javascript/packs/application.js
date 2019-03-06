@@ -9,3 +9,7 @@
 
 console.log('Hello World from Webpacker')
 import { growImage } from '../components/grow_image';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import { initMapbox } from '../plugins/init_mapbox';
+
+initMapbox();
