@@ -17,6 +17,8 @@ user123 = User.create!(
   remote_photo_url: 'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg'
 )
 
+locations = ["Antwerp", "Brussels", "Namur", "Booischot", "Bosweg 12, Heist-Op-Den-Berg"]
+
 url_list_cars = [
   'https://res.cloudinary.com/discwhk4f/image/upload/v1551781659/wx0p5qp2g5obwlw8evau.jpg',
   'https://res.cloudinary.com/discwhk4f/image/upload/v1551790265/Lam1_trans_NvBQzQNjv4BqnAdySV0BR-4fDN_-_p756cVfcy8zLGPV4EhRkjQy7tg.jpg',
@@ -29,7 +31,7 @@ url_list_cars = [
   car = Car.new
   car.name = "Diego's ferrari #{i}"
   car.description = "Amazing car #{i}"
-  car.location = "Brussels #{i}"
+  car.location = locations.sample
   car.capacity = 2
   car.price = 300
   car.make = 'Ferrari'
