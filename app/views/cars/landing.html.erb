@@ -8,7 +8,7 @@
     <p>Discover innovative cars in your favorite place for the perfect trip</p>
 
       <%= form_tag(cars_path, method: :get) do%>
-      <%= text_field_tag(:search, params[:search]) %><br>
+      <%= text_field_tag(:search, params[:search],  placeholder: 'Search for a car...')%><br>
       <%= submit_tag ("Search"), make: nil, id: "submit-button" %>
 
 
