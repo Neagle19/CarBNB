@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(check_review_params)
-    @review.user = User.last
+    @review.user = current_user
     @review.car = Car.find(params[:car_id])
     @review.booking = Booking.where(car_id: Car.find(params[:car_id]))[0]
     if @review.save
@@ -17,7 +17,6 @@ class ReviewsController < ApplicationController
       render :new
     end
   end
-
 
   private
 
