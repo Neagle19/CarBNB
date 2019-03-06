@@ -4,7 +4,6 @@
 .cards {
   display: flex;
   align-items: center;
-  justify-content: space-around;
   flex-wrap: wrap;
   font-family: 'Raleway', sans-serif;
   // flex: 1 1 auto;
@@ -69,6 +68,7 @@
   bottom: 10px;
   color: white;
   font-size: 30px;
+  font-weight: 100;
    h4 {
     font-size: larger;
     margin-bottom: 7px;
