@@ -27,36 +27,37 @@
 
 .search-bar {
   position: relative;
-  top: 230px;
+  bottom: -400px;
   left: 50px;
-  background-color: #FEFEFE;
-  border-radius: 10px;
-  width: 275px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: rgba(0,0,0,0.12) 0px 16px 40px;
+  width: 450px;
   height: 185px;
   margin-bottom: 64px;
   padding-top: 10px;
   padding-left: 32px;
   padding-right: 10px;
   padding-bottom: 50px;
-  color: gray;
+  color: #242424;
+}
+
+.search-bar h2 {
+  font-weight: bold;
+  font-size: 25px;
 }
 
 
 #submit-button {
   background: #FF5A5F;
   margin-top: 10px;
-  height: 25px;
-  width: 100px;
-  border-radius: 20px;
+  height: 40px;
+  width: 150px;
+  border-radius: 8px;
   color: white;
-  margin-left: 50px;
-  font-size: 15px;
+  margin-left: 130px;
+  font-size: 20px;
+  font-weight: lighter;
 
 }
 
-#search {
-  border-radius: 20px;
-  position: center;
-  height: 25px;
-  width: 200px;
-}

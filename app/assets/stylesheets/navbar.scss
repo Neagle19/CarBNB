@@ -10,6 +10,12 @@ body {
   margin-left: 0px;
 }
 
+.left-size {
+  display: flex;
+  justify-content: space-between ;
+  flex-direction: row;
+}
+
 .container-navbar {
   display: flex;
   width: 100vw;
@@ -19,6 +25,25 @@ body {
 
 .container-buttons {
   display: flex;
+}
+
+#search {
+  color: black;
+  font-size: 20px;
+  font-weight: lighter;
+  border: 1px solid #EBEBEB;
+  border-radius: 10px;
+  position: center;
+  height: 40px;
+  width: 400px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding-left: 20px;
+}
+
+.search-form {
+  margin-left: 50px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .btn-navbar {
