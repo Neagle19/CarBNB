@@ -3,12 +3,23 @@ class CarsController < ApplicationController
   end
 
   def index
+    @cars = Car.where.not(latitude: nil, longitude: nil)
+
+
+
     if params[:search]
       @cars = Car.where('lower(name) LIKE :search OR lower(make) LIKE :search OR lower(location) LIKE :search OR lower(model) LIKE :search', search: "%#{params[:search].downcase}%" )
     else
       @cars = Car.all
     end
-
+     @markers = @cars.where.not(latitude: nil, longitude: nil).map do |car|
+      {
+        lng: car.longitude,
+        lat: car.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { car: car }),
+        image_url: car.photo&.url
+      }
+        end
     # Item.where('game_name LIKE :search OR genre LIKE :search OR console LIKE :search', search: "%#{search}%")
   end
 
@@ -31,6 +42,7 @@ class CarsController < ApplicationController
       render :new
     end
   end
+
 
     def top
     cars = Car.all
