@@ -38,7 +38,7 @@ class CarsController < ApplicationController
     @car = Car.new
   end
 
-    def create
+  def create
     @car = Car.new car_params
     @car.user = current_user
     if @car.save!
@@ -48,19 +48,24 @@ class CarsController < ApplicationController
     end
   end
 
-
-
-
-
   def top
-
     cars = Car.all
     collect_cars = {}
     cars.each do |car|
-       average =  car.gimme_average
-       collect_cars[car.id] = [average, car]
+      average =  car.gimme_average
+      collect_cars[car.id] = [average, car]
     end
     @car_top = collect_cars.sort_by { |_k, v| v[0] }.reverse.first(5)
+  end
+
+  def destroy
+    @car = Car.find(params[:id])
+    # @car.user = current_user
+    if @car.destroy
+      redirect_to profile_path(current_user.id)
+    else
+      render :new
+    end
   end
 
 # TZ private
