@@ -5,30 +5,27 @@ class CarsController < ApplicationController
   def index
     @cars = Car.where.not(latitude: nil, longitude: nil)
 
-
-
-    if params[:search]
-      @cars = Car.where('lower(name) LIKE :search OR lower(make) LIKE :search OR lower(location) LIKE :search OR lower(model) LIKE :search', search: "%#{params[:search].downcase}%" )
-
+    if params[:search].present?
+      @cars = Car.global_search(params[:search])
     else
       @cars = Car.all
     end
-     @markers = @cars.where.not(latitude: nil, longitude: nil).map do |car|
+
+    @markers = @cars.where.not(latitude: nil, longitude: nil).map do |car|
       {
         lng: car.longitude,
         lat: car.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { car: car }),
         price: car.price
       }
-        end
-      collect_cars = {}
+    end
+    collect_cars = {}
 
-         @cars.each do |car|
-        average =  car.gimme_average
-        collect_cars[car.id] = [average, car]
-        end
-        @cars = collect_cars.sort_by { |_k, v| v[0] }.reverse
-    # Item.where('game_name LIKE :search OR genre LIKE :search OR console LIKE :search', search: "%#{search}%")
+    @cars.each do |car|
+    average =  car.gimme_average
+    collect_cars[car.id] = [average, car]
+    end
+    @cars = collect_cars.sort_by { |_k, v| v[0] }.reverse
   end
 
   def show
@@ -41,7 +38,7 @@ class CarsController < ApplicationController
     @car = Car.new
   end
 
-    def create
+  def create
     @car = Car.new car_params
     @car.user = current_user
     if @car.save!
@@ -51,19 +48,24 @@ class CarsController < ApplicationController
     end
   end
 
-
-
-
-
   def top
-
     cars = Car.all
     collect_cars = {}
     cars.each do |car|
-       average =  car.gimme_average
-       collect_cars[car.id] = [average, car]
+      average =  car.gimme_average
+      collect_cars[car.id] = [average, car]
     end
     @car_top = collect_cars.sort_by { |_k, v| v[0] }.reverse.first(5)
+  end
+
+  def destroy
+    @car = Car.find(params[:id])
+    # @car.user = current_user
+    if @car.destroy
+      redirect_to profile_path(current_user.id)
+    else
+      render :new
+    end
   end
 
 # TZ private
