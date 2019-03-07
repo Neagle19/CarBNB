@@ -12,6 +12,9 @@
     </div>
   <% end %>
   <p><b>Contact me at:</b> <%= @user.email %></p>
+  <% if user_signed_in? && @user != current_user %>
+  <%= link_to "Send message to #{@user.first_name}", message_path(@user.id) %>
+  <% end %>
 </div>
 
 

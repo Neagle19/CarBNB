@@ -1,0 +1,13 @@
+<%= @messages %>
+<br>
+<%= @sender.first_name %>
+<br>
+<%= @receiver.first_name %>
+
+
+<%= simple_form_for (@new_message) do |f| %>
+  <%= f.input :content %>
+  <%= f.input :receiver_id,  as: :hidden, input_html: { value: @receiver_id } %>
+
+  <%= f.button :submit %>
+<% end %>
