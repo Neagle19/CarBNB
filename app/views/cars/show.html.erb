@@ -20,6 +20,7 @@
         <li><strong>Minimum Age Allowed to Book this Car: </strong><%= @car.min_age %></li>
         <li><strong>Price €/day: </strong><%= @car.price %></li>
         <li><strong>Owner: </strong><%= link_to @car.user.first_name, profile_path(@car.user.id) %></li>
+        <li style="margin-top: 5px"><%= link_to "Start conversation with #{@car.user.first_name}", message_path(@car.user.id), class: "btn-profile conversation-btn" %></li>
       </ul>
     </div>
     <div class="photo-card">
@@ -44,7 +45,7 @@
     <%= link_to "Add review", new_car_review_path(@car.id), class: 'add-review-btn' %>
   <% end %>
   <% if @car.user == current_user %>
-    <%= link_to "Delete", car_path(@car), method: :delete, data: { confirm: "Are you sure?" }, class: 'delete-car-btn' %>
+    <%= link_to "Remove your car", car_path(@car), method: :delete, data: { confirm: "Are you sure?" }, class: 'delete-car-btn' %>
   <% end %>
   <%= link_to "Go back to list", cars_path, class: 'go-home-btn' %>
 </div>

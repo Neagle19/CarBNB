@@ -25,8 +25,8 @@ const addMarkersToMap = (map, markers) => {
   element.style.fontWeight = 'bold';
 
   element.style.backgroundSize = 'contain';
-  element.style.width = '25px';
-  element.style.height = '25px';
+  element.style.width = '30px';
+  element.style.height = '30px';
 
   // Pass the element as an argument to the new marker
   new mapboxgl.Marker(element)
