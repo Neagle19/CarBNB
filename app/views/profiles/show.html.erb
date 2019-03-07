@@ -14,9 +14,8 @@
   <%= link_to "Edit info",edit_user_registration_path,class: "edit-profile-btn btn-profile" %>
   </div>
   <% end %>
-  <p><b>Contact me at:</b> <%= @user.email %></p>
   <% if user_signed_in? && @user != current_user %>
-  <%= link_to "Send message to #{@user.first_name}", message_path(@user.id) %>
+  <%= link_to "Start conversation with #{@user.first_name}", message_path(@user.id), class: "btn-profile" %>
   <% end %>
 </div>
 

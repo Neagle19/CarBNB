@@ -1,6 +1,15 @@
-<% @conversations_with.each do |user|  %>
+<style>
+  a {
+  text-decoration: none;
+}
+</style>
 
-  <p class="<%= unread if user[2] %>"><%= link_to user[0].first_name, message_path(user[0].id) %><br>
-    last message created at: <%= user[1] %>
-  </p>
+<% @conversations_with.each do |user|  %>
+  <%= link_to message_path(user[0].id) do %>
+  <div class="conversation <%= "unread" if !user[2] %>">
+    <p><%= user[0].first_name %></p>  <p>:</p>
+    <p>last message created at: <%= user[1] %></p>
+  </div>
+  <% end %>
 <% end %>
+

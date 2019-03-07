@@ -5,12 +5,22 @@ class MessagesController < ApplicationController
     messages.sort_by! { |message| message.created_at }
     @conversations_with = []
     messages.each do |message|
-      if message.sender == current_user && !@conversations_with.include?([message.receiver, *, *])
-        @conversations_with.push([message.receiver, message.created_at, message.value])
-      elsif message.receiver == current_user && !@conversations_with.include?([message.sender, *, *])
-        @conversations_with.push([message.sender, message.created_at, message.value])
+      if message.sender == current_user && check_user_in(@conversations_with, message.receiver)
+        @conversations_with.push([message.receiver, message.created_at, message.status])
+      elsif message.receiver == current_user && check_user_in(@conversations_with, message.sender)
+        @conversations_with.push([message.sender, message.created_at, message.status])
       end
     end
+    p "-"*60
+    p @conversations_with
+  end
+
+  def check_user_in(array_of_ar, user)
+    result = true
+    array_of_ar.each do |array|
+      result = false if array.include?(user)
+    end
+    result
   end
 
   def show
@@ -20,6 +30,7 @@ class MessagesController < ApplicationController
     @messages_sent = @sender.sent_messages.where(receiver: @receiver)
     @messages = @messages_sent + @messages_received
     @messages.sort_by! { |message| message.created_at }
+    @messages.reverse!
     @new_message = Message.new
   end
 
