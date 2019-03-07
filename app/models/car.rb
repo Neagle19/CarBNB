@@ -29,4 +29,14 @@ class Car < ApplicationRecord
     end
   end
 
+  include PgSearch
+  pg_search_scope :global_search,
+  against: [:name, :make, :location, :model, :price, :year],
+  associated_against: {
+    user: [:first_name, :last_name]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+
 end
