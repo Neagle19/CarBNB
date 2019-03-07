@@ -18,7 +18,7 @@
         <li><strong>Fuel Type: </strong><%= @car.fuel %></li>
         <li><strong>Fuel Consumption: </strong><%= @car.consumption %></li>
         <li><strong>Minimum Age Allowed to Book this Car: </strong><%= @car.min_age %></li>
-        <li><strong>Price: </strong><%= @car.price %></li>
+        <li><strong>Price €/day: </strong><%= @car.price %></li>
         <li><strong>Owner: </strong><%= link_to @car.user.first_name, profile_path(@car.user.id) %></li>
       </ul>
     </div>
@@ -34,7 +34,7 @@
 <br>
 <br>
 <% @reviews.each do |review| %>
-<p class="review-show"><%= review.rating %> -- <%= review.user.first_name %>: <%= review.description %></p>
+<p class="review-show"><b><%= review.rating %></b> -- <%= review.user.first_name %>: <i style="font-weight: 300;"><%= review.description %></i></p>
 <% end %>
 </div>
 <br>
