@@ -5,30 +5,27 @@ class CarsController < ApplicationController
   def index
     @cars = Car.where.not(latitude: nil, longitude: nil)
 
-
-
-    if params[:search]
-      @cars = Car.where('lower(name) LIKE :search OR lower(make) LIKE :search OR lower(location) LIKE :search OR lower(model) LIKE :search', search: "%#{params[:search].downcase}%" )
-
+    if params[:search].present?
+      @cars = Car.global_search(params[:search])
     else
       @cars = Car.all
     end
-     @markers = @cars.where.not(latitude: nil, longitude: nil).map do |car|
+
+    @markers = @cars.where.not(latitude: nil, longitude: nil).map do |car|
       {
         lng: car.longitude,
         lat: car.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { car: car }),
         image_url: car.photo&.url
       }
-        end
-      collect_cars = {}
+    end
+    collect_cars = {}
 
-         @cars.each do |car|
-        average =  car.gimme_average
-        collect_cars[car.id] = [average, car]
-        end
-        @cars = collect_cars.sort_by { |_k, v| v[0] }.reverse
-    # Item.where('game_name LIKE :search OR genre LIKE :search OR console LIKE :search', search: "%#{search}%")
+    @cars.each do |car|
+    average =  car.gimme_average
+    collect_cars[car.id] = [average, car]
+    end
+    @cars = collect_cars.sort_by { |_k, v| v[0] }.reverse
   end
 
   def show
