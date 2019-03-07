@@ -1,5 +1,13 @@
 
 <div class="wrapper" text-align="center">
+    <div
+      id="map"
+      style="width: 100vw;
+      height: 350px;
+      margin-top: 90px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
   <div class="container">
     <div class="cards">
       <% @cars.each do |c| %>
@@ -16,6 +24,7 @@
               </div>
             </div>
           </div>
+
           <div class="card-footer">
             <div class="card-date">
               <p>Posted on 03/02/2019</p>
@@ -24,7 +33,7 @@
               <%= raw " <i class='fas fa-star'></i> " * car.gimme_average %>
             </div>
             <div class="card-price">
-              <a><%= car.price %></a>
+              <a>€<%= car.price %>/day</a>
             </div>
           </div>
         </div>
@@ -33,6 +42,5 @@
       </div>
     </div>
   </div>
-</div>
 
 

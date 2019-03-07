@@ -18,7 +18,8 @@ class Car < ApplicationRecord
   validates :kilometers, presence: true
   validates :year, presence: true
   mount_uploader :photo, PhotoUploader
-
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 
   def gimme_average
     if self.reviews.any?
@@ -33,4 +34,14 @@ class Car < ApplicationRecord
       { from: range[0], to: range[1] }
     end
   end
+  include PgSearch
+  pg_search_scope :global_search,
+  against: [:name, :make, :location, :model, :price, :year],
+  associated_against: {
+    user: [:first_name, :last_name]
+  },
+  using: {
+    tsearch: { prefix: true }
+  }
+
 end

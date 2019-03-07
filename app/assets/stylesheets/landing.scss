@@ -34,27 +34,28 @@
   left: 50px;
   border-radius: 4px;
   width: 450px;
-  height: 185px;
   margin-bottom: 64px;
   padding-top: 10px;
   padding-left: 32px;
   padding-right: 10px;
-  padding-bottom: 50px;
   font-weight: 100;
-  p {
-      margin-top: 7px;
-      margin-bottom: 10px;
+  h2 {
+    margin-bottom: 20px;
   }
+}
+
+.white-txt {
+  color: white !important;
 }
 
 .search-bar h2 {
   font-weight: 300;
   font-size: 25px;
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 
-#submit-button {
+.submit-button {
   background: #FF5A5F;
   margin-top: 8px;
   height: 40px;
@@ -72,3 +73,22 @@
   box-shadow: none;
 }
 
+.nearby-button {
+  background: #FF5A5F;
+  margin-top: 8px;
+  height: 38px;
+  width: 150px;
+  border-radius: 8px;
+  color: white;
+  margin-left: 130px;
+  font-size: 20px;
+  font-weight: lighter;
+  position: absolute;
+  top: 472px;
+  left: 81px;
+  text-align: center;
+  line-height: 38px;
+  text-decoration: none;
+  border: solid;
+  border-width: 1px;
+}

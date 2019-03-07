@@ -3,7 +3,11 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
-    "flatpickr": "^4.5.7"
+
+    "@mapbox/mapbox-gl-geocoder": "^3.1.4",
+    "@rails/webpacker": "3.5",
+    "places.js": "^1.16.1"
+
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"

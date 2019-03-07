@@ -14,5 +14,33 @@
 
 input.btn {
   width: 150px;
-  font-size: 50px;
+  font-size: 20px;
+  border-radius: 7px;
+  border: 1px solid gray;
+  color: gray;
+  height: 50px;
+  position: relative;
+  left: 20px;
+  font-weight: 300;
+}
+
+#user_first_name, #user_last_name, #user_email, #user_password, #user_password_confirmation, #user_location {
+  border-radius: 4px;
+  height: 40px;
+  width: 200px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 20px;
+  font-weight: 300;
+  border: 1px solid gray;
+}
+
+#user_description {
+  border-radius: 4px;
+  height: 40px;
+  width: 400px;
+  border: 1px solid gray;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 300;
 }

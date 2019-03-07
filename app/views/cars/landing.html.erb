@@ -5,14 +5,12 @@
 
   <div class="search-bar">
     <h2>Find cars everywhere on CarBNB</h2>
-    <p>Discover innovative cars in your favorite place for the perfect trip</p>
-
       <%= form_tag(cars_path, method: :get) do%>
-      <%= text_field_tag(:search, params[:search],  placeholder: 'Search for a car...')%><br>
-      <%= submit_tag ("Search"), make: nil, id: "submit-button" %>
-
-
+      <%= text_field_tag(:search, params[:search], class: "white-txt")%><br>
+      <%= submit_tag ("Search"), make: nil, class: "submit-button" %>
       <% end %>
 
+
   </div>
+    <%= link_to "Search nearby", cars_path(:search_place => request.location.city), class: "nearby-button" %>
 </div>
