@@ -18,6 +18,23 @@ const addMarkersToMap = (map, markers) => {
       .setPopup(popup)
       .addTo(map);
 
+      const element = document.createElement('div');
+  element.className = 'marker';
+  element.innerText = `${marker.image_url}$`;
+  element.style.color = 'blue';
+  element.style.fontWeight = 'bold';
+
+  element.style.backgroundSize = 'contain';
+  element.style.width = '25px';
+  element.style.height = '25px';
+
+  // Pass the element as an argument to the new marker
+  new mapboxgl.Marker(element)
+    .setLngLat([marker.lng, marker.lat])
+    .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+    .setHTML(marker.infoWindow.content))
+    .addTo(map);
+
 });
 }
 const fitMapToMarkers = (map, markers) => {
