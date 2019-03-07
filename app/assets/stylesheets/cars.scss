@@ -108,6 +108,17 @@ a {
   text-decoration: none;
 }
 
+.delete-car-btn {
+  color: black;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-transform: capitalize;
+  margin: 5px;
+  padding: 5px;
+  text-decoration: none;
+}
+
 .go-home-btn {
   color: black;
   background-color: transparent;
@@ -124,6 +135,10 @@ a {
 }
 
 .go-home-btn:hover {
+  opacity: 0.5;
+}
+
+.delete-car-btn:hover {
   opacity: 0.5;
 }
 
