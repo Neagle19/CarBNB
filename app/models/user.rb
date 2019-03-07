@@ -9,4 +9,18 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  def count_unread
+    result = 0
+    self.received_messages.each do |message|
+      if !message.status
+        result +=1
+      end
+    end
+    if result.zero?
+      return ''
+    else
+      return "(#{result})"
+    end
+  end
 end
