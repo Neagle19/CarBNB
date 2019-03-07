@@ -43,7 +43,7 @@
 <br>
 
 <div class="container-review">
-  <% if user_signed_in? %>
+  <% if user_signed_in? && @car.user != current_user %>
     <%= link_to "Add review", new_car_review_path(@car.id), class: 'add-review-btn' %>
   <% end %>
   <% if @car.user == current_user %>
