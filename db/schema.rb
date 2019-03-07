@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_06_102006) do
+ActiveRecord::Schema.define(version: 2019_03_07_073058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,18 @@ ActiveRecord::Schema.define(version: 2019_03_06_102006) do
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "subject"
+    t.text "content"
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "status", default: false
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.bigint "car_id"
     t.bigint "user_id"
@@ -84,6 +96,8 @@ ActiveRecord::Schema.define(version: 2019_03_06_102006) do
   add_foreign_key "bookings", "cars"
   add_foreign_key "bookings", "users"
   add_foreign_key "cars", "users"
+  add_foreign_key "messages", "users", column: "receiver_id"
+  add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "cars"
   add_foreign_key "reviews", "users"

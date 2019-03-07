@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages, only:[:index,:show,:create]
   get 'profiles/add50', to: 'profiles#add50', as: 'add50'
   resources :profiles, only:[:index, :show]
   devise_for :users
