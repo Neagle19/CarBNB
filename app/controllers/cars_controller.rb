@@ -10,7 +10,9 @@ class CarsController < ApplicationController
     else
       @cars = Car.all
     end
-
+    if params[:search_place].present?
+      @cars = @cars.near(params[:search_place], 50)
+    end
     @markers = @cars.where.not(latitude: nil, longitude: nil).map do |car|
       {
         lng: car.longitude,
