@@ -12,30 +12,24 @@ const buildMap = () => {
 
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
-    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-    new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup)
-      .addTo(map);
 
-      const element = document.createElement('div');
+  const element = document.createElement('div');
   element.className = 'marker';
-  element.innerText = `${marker.image_url}$`;
+  element.style.backgroundImage = "url('')"
+  element.innerText = `${marker.price}$`;
   element.style.color = 'blue';
   element.style.fontWeight = 'bold';
-
-  element.style.backgroundSize = 'contain';
-  element.style.width = '30px';
-  element.style.height = '30px';
+  element.style.width = '25px';
+  element.style.height = '25px';
+    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // <-- add this
 
   // Pass the element as an argument to the new marker
-  new mapboxgl.Marker(element)
+   new mapboxgl.Marker(element)
     .setLngLat([marker.lng, marker.lat])
-    .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-    .setHTML(marker.infoWindow.content))
+    .setPopup(popup) // add popups
     .addTo(map);
 
-});
+  });
 }
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
