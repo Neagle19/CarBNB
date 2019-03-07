@@ -3,12 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .conversation {
   p {
-  text-decoration: none !important;
-  color: #6B6A6A;
-  font-weight: 300;
-  line-height: 60px;
-  margin-left: 10px;
-  margin-right: 10px;
+    text-decoration: none !important;
+    color: #6B6A6A;
+    font-weight: 300;
+    line-height: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
   display: flex;
   justify-content: flex-start;
@@ -31,6 +31,7 @@
 .unread {
   font-weight: 500;
   color: black;
+  text-decoration: underline;
 }
 
 .send-message {

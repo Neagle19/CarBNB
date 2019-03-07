@@ -7,7 +7,10 @@
     <h2>Find cars everywhere on CarBNB</h2>
       <%= form_tag(cars_path, method: :get) do%>
       <%= text_field_tag(:search, params[:search], class: "white-txt")%><br>
-      <%= submit_tag ("Search"), make: nil, id: "submit-button" %>
+      <%= submit_tag ("Search"), make: nil, class: "submit-button" %>
       <% end %>
+
+
   </div>
+    <%= link_to "Search nearby", cars_path(:search_place => request.location.city), class: "nearby-button" %>
 </div>
