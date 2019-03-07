@@ -20,7 +20,7 @@
         <li><strong>Minimum Age Allowed to Book this Car: </strong><%= @car.min_age %></li>
         <li><strong>Price €/day: </strong><%= @car.price %></li>
         <li><strong>Owner: </strong><%= link_to @car.user.first_name, profile_path(@car.user.id) %></li>
-        <% if current_user != @car.user %>
+        <% if current_user != @car.user && user_signed_in? %>
         <li style="margin-top: 5px"><%= link_to "Start conversation with #{@car.user.first_name}", message_path(@car.user.id), class: "btn-profile conversation-btn" %></li>
         <% end %>
       </ul>
@@ -43,7 +43,7 @@
 <br>
 
 <div class="container-review">
-  <% if user_signed_in? %>
+  <% if user_signed_in? && @car.user != current_user %>
     <%= link_to "Add review", new_car_review_path(@car.id), class: 'add-review-btn' %>
   <% end %>
   <% if @car.user == current_user %>
