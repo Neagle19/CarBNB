@@ -16,7 +16,7 @@ class CarsController < ApplicationController
         lng: car.longitude,
         lat: car.latitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { car: car }),
-        image_url: car.price
+        price: car.price
       }
     end
     collect_cars = {}
