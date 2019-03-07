@@ -45,6 +45,7 @@
 <div class="container-review">
   <% if user_signed_in? && @car.user != current_user %>
     <%= link_to "Add review", new_car_review_path(@car.id), class: 'add-review-btn' %>
+    <%= link_to "Book this car", new_car_booking_path(@car.id), class: 'add-review-btn' %>
   <% end %>
   <% if @car.user == current_user %>
     <%= link_to "Remove your car", car_path(@car), method: :delete, data: { confirm: "Are you sure?" }, class: 'delete-car-btn' %>
