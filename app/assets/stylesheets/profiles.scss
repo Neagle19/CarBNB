@@ -17,13 +17,30 @@
   position: absolute;
   top: 55px;
   right: 0;
-  width: 50%;
+  width: 75%;
   margin-top: 20px;
+}
+
+.center-self {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-profile-btn {
+    text-decoration: none;
+    color: black;
+    border: solid;
+    border-width: 1px;
+    border-color: #C2C1BF;
+    width: 150px;
+    height: 30px;
+    line-height: 30px;
 }
 
 .profile-info {
   min-height: 500px;
-  width: 50%;
+  width: 25%;
   position: absolute;
   left: 0;
   display: flex;
@@ -31,8 +48,9 @@
   justify-content: space-evenly;
   font-weight: 100;
   text-align: center;
-  margin-top: 20px;
-
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
 }
 
 .hidden-info {
@@ -41,10 +59,15 @@
   margin-bottom: 20px;
   margin-left: 40px;
   margin-right: 40px;
+  align-items: center;
 }
 
 .btn-profile {
   color: white;
   background-color: #EA565C;
   border-radius: 5px;
+  width: 150px;
+  height: 30px;
+  line-height: 30px;
+  text-decoration: none;
 }

@@ -6,7 +6,6 @@
   align-items: center;
   flex-wrap: wrap;
   font-family: 'Raleway', sans-serif;
-  height: 70vh;
   justify-content: center;
   width: 100vw;
   // flex: 1 1 auto;
@@ -17,8 +16,9 @@
   align-items: center;
   flex-wrap: wrap;
   font-family: 'Raleway', sans-serif;
-  height: 70vh;
-  width: 50vw;
+  border-left: solid;
+  border-width: 1px;
+  border-color: grey;
   // flex: 1 1 auto;
 }
 
@@ -168,14 +168,14 @@ a {
   color: white;
   padding-top: 10px;
   padding-left: 12px;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .card-category {
   position: absolute;
   top: 10px;
   left: 10px;
-  font-weight: bold;
+  font-weight: 300;
   padding-top: 0px;
   margin-top: 0px;
 }
@@ -192,7 +192,7 @@ a {
   bottom: 10px;
   color: white;
   font-size: 30px;
-  font-weight: 100;
+  font-weight: 300;
    h4 {
     font-size: larger;
     margin-bottom: 7px;
@@ -205,13 +205,14 @@ a {
 
 .review-show {
   margin-left: 20px;
+  font-size: 20px;
 }
 
 
 .card-location {
   padding-top: 10px;
   padding-left: 12px;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .card-footer {

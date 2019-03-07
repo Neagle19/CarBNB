@@ -5,14 +5,9 @@
 
   <div class="search-bar">
     <h2>Find cars everywhere on CarBNB</h2>
-    <p>Discover innovative cars in your favorite place for the perfect trip</p>
-
       <%= form_tag(cars_path, method: :get) do%>
-      <%= text_field_tag(:search, params[:search],  placeholder: 'Search for a car...')%><br>
+      <%= text_field_tag(:search, params[:search], class: "white-txt")%><br>
       <%= submit_tag ("Search"), make: nil, id: "submit-button" %>
-
-
       <% end %>
-
   </div>
 </div>
