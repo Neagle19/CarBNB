@@ -1,13 +1,11 @@
-<%= @messages %>
-<br>
-<%= @sender.first_name %>
-<br>
-<%= @receiver.first_name %>
+<% @messages.each do |message|%>
+  <p><%= message.created_at %>//<%= message.sender.first_name %> : <%= message.content %></p>
+<% end %>
 
 
 <%= simple_form_for (@new_message) do |f| %>
   <%= f.input :content %>
-  <%= f.input :receiver_id,  as: :hidden, input_html: { value: @receiver_id } %>
+  <%= f.input :receiver_id,  as: :hidden, input_html: { value: @receiver.id } %>
 
   <%= f.button :submit %>
 <% end %>

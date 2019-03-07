@@ -1,2 +1,6 @@
-<h1>Messages#index</h1>
-<p>Find me in app/views/messages/index.html.erb</p>
+<% @conversations_with.each do |user|  %>
+
+  <p class="<%= unread if user[2] %>"><%= link_to user[0].first_name, message_path(user[0].id) %><br>
+    last message created at: <%= user[1] %>
+  </p>
+<% end %>
