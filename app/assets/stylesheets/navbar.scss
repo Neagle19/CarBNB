@@ -1,7 +1,8 @@
 $height: 55px;
 
 .header {
-  margin-top: $height;
+  margin-top: 99px;
+
 }
 
 body {
@@ -21,6 +22,7 @@ body {
   width: 100vw;
   justify-content: space-between;
   height: $height;
+  padding-top: 13px;
 }
 
 .container-buttons {
@@ -53,6 +55,7 @@ body {
   color: black;
   padding-left: 5px;
   padding-right: 5px;
+  font-size: 20px;
 }
 
 .logo {
