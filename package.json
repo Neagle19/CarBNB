@@ -2,7 +2,8 @@
   "name": "CarBNB",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.5"
+    "@rails/webpacker": "3.5",
+    "flatpickr": "^4.5.7"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"

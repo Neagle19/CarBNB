@@ -42,6 +42,7 @@
 <div class="container-review">
   <% if user_signed_in? %>
     <%= link_to "Add review", new_car_review_path(@car.id), class: 'add-review-btn' %>
+    <%= link_to "Book this car", new_car_booking_path(@car.id), class: 'add-review-btn' %>
   <% end %>
   <%= link_to "Go back to list", cars_path, class: 'go-home-btn' %>
 </div>
