@@ -2,12 +2,16 @@
 
 <h3>Here are your confirmed bookings:</h3>
 
+<ul>
 <% @bookings.each do |booking| %>
   <%= link_to car_bookings_path(booking) do %>
-  <%= booking.car %>
-  <%= booking.user %>
-  <%= booking.start_date %>
-  <%= booking.end_date %>
-  <%= booking.status %>
+  <br>
+  <li><strong>Car: </strong><%= booking.car.name %></li>
+  <li><strong>Start Date: </strong><%= booking.start_date %>
+  <li><strong>End Date: </strong><%= booking.end_date %>
+  <li><strong>Status: </strong><%= booking.status == true ? "Confirmed" : "Not Confirmed" %>
+
   <% end %>
 <% end %>
+</ul>
+

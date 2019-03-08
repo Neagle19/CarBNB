@@ -40,8 +40,12 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking.destroy
-    redirect_to car_bookings_path
+    @car = Car.find(params[:id])
+    if @booking.destroy
+      redirect_to car_path(@car)
+    else
+      render :new
+    end
   end
 
   def accepted
