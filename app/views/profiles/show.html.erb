@@ -69,6 +69,7 @@
               </div>
             </div>
           </div>
+          <%= link_to "Delete", car_booking_path(booking.car.id, booking.id), method: :delete, data: { confirm: "Are you sure you want to cancel your booking?" }, class: 'add-review-btn' %>
           <div class="card-footer">
             <div class="card-booking-date">
               <p>Start Date: <%= booking.start_date.day %>-<%= booking.start_date.month %>-<%= booking.start_date.year %>

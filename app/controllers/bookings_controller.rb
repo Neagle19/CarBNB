@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
-
+  before_action only: [:show, :edit, :update, :destroy]
+#:set_booking
   def index
     @bookings = Booking.all
   end
@@ -33,6 +33,7 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking = Booking.find(params[:id])
     @booking.update(booking_params)
     if @booking.save(booking_params)
       redirect_to @booking
@@ -42,9 +43,10 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @car = Car.find(params[:id])
+    # @car = Car.find(params[:id])
+    @booking = Booking.find(params[:id])
     if @booking.destroy
-      redirect_to car_path(@car)
+      redirect_to profile_path(current_user.id)
     else
       render :new
     end
@@ -64,9 +66,9 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:car, :user, :start_date, :end_date, :status)
   end
 
-  def set_booking
-    @booking = Booking.find(params[:id])
-  end
+  # def set_booking
+  #   @booking = Booking.find(params[:id])
+  # end
 
   def set_booking2
     @booking = Booking.find(params[:booking_id])
