@@ -24,31 +24,20 @@
   padding: 3px;
 }
 
-.booked-cars, .owned-cars {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  font-family: 'Raleway', sans-serif;
-  border-left: solid;
-  border-width: 1px;
-  border-color: gray;
-  a {
-    color: inherit !important;
-    text-decoration: none !important;
-  }
-  // flex: 1 1 auto;
-}
+
 
 .cards-profile {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   font-family: 'Raleway', sans-serif;
-  border-left: solid;
-  border-width: 1px;
+  padding-left: 10px;
+  height: 100%;
+  border-bottom: solid;
   border-color: gray;
-  // flex: 1 1 auto;
+  border-width: 1px;
 }
+  // flex: 1 1 auto;
+
 
 .mapboxgl-popup-content {
   -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.64);
