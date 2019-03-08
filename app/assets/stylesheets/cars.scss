@@ -17,6 +17,20 @@
   padding: 3px;
 }
 
+.booked-cars, .owned-cars {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: 'Raleway', sans-serif;
+  border-left: solid;
+  border-width: 1px;
+  border-color: gray;
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  // flex: 1 1 auto;
+}
 
 .cards-profile {
   display: flex;
@@ -25,7 +39,7 @@
   font-family: 'Raleway', sans-serif;
   border-left: solid;
   border-width: 1px;
-  border-color: grey;
+  border-color: gray;
   // flex: 1 1 auto;
 }
 
