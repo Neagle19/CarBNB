@@ -64,7 +64,7 @@
             <div class="card-link">
             <div class="delete-btn">
               <% if current_user == @user %>
-                <%= link_to car_booking_path(booking.car.id, booking.id), method: :delete, data: { confirm: "Are you sure you want to cancel your booking?" }, class: 'add-review-btn' do %>
+                <%= link_to car_booking_path(booking.car.id, booking.id), method: :delete, data: { confirm: "Are you sure you want to cancel your booking?" }, class: 'delete-btn' do %>
                     <%= image_tag("cross.png", class: "delete-cross") %>
                 <% end %>
               <% end %>
