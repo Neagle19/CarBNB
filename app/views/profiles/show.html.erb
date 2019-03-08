@@ -6,8 +6,8 @@
   <p><b>Contact me at:</b> <%= @user.email %></p>
   <% if current_user == @user %>
   <div class="hidden-info">
-    <p>You have <b><%= @user.balance %>$</b> at the moment.</p><br>
-    <%= link_to "Add 50 dollars", add50_path, class: "btn-profile" %><br>
+    <p>You have <b><%= @user.balance %>€</b> at the moment.</p><br>
+    <%= link_to "Add 50 euros", add50_path, class: "btn-profile" %><br>
     <%= link_to "Add new car", new_car_path, class: "btn-profile"  %>
   </div>
   <div class="center-self">
