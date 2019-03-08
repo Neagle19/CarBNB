@@ -9,6 +9,19 @@
   align-self: center
 }
 
+.delete-btn {
+}
+
+.delete-cross ,.add-review-btn {
+  width: 15px;
+  img {
+    filter: invert(100%);
+  }
+  position: absolute;
+  right: 5px;
+  border: none;
+}
+
 .profile-name{
   align-self:center
 }
