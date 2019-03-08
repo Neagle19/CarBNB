@@ -36,12 +36,25 @@ class MessagesController < ApplicationController
   def create
     @new_message = Message.new(check_message_params)
     @new_message.sender = current_user
+    @receiver = @new_message.receiver
     if @new_message.save
-      redirect_to message_path(@new_message.receiver.id)
+      respond_to do |format|
+        format.html { redirect_to message_path(@new_message.receiver.id) }
+        format.js # will render 'app/views/reviews/create.js.erb'
+      end
     else
-      redirect_to message_path(@new_message.receiver.id)
+      respond_to do |format|
+        format.html { render 'messages/show' }
+        format.js # same as above
+      end
     end
   end
+
+  #     redirect_to message_path(@new_message.receiver.id)
+  #   else
+  #     redirect_to message_path(@new_message.receiver.id)
+  #   end
+  # end
 
   private
 

@@ -1,0 +1,18 @@
+// Here, we are generating JavaScript that will be executed in the browser
+
+function refreshForm(innerHTML) {
+  const newMessageForm = document.getElementById('send-message');
+  newMessageForm.innerHTML = innerHTML;
+}
+
+function addMessage(messageHTML) {
+  const reviews = document.getElementById('messsages-list');
+  reviews.insertAdjacentHTML('afterbegin', messageHTML);
+}
+
+<% if @new_message.errors.any? %>
+  refreshForm('<%= j render "messages/form", message: @new_message, receiver: @receiver %>');
+<% else %>
+  addMessage('<%= j render "messages/show", message: @new_message %>');
+  refreshForm('<%= j render "messages/form", message: Message.new, receiver: @receiver %>');
+<% end %>
