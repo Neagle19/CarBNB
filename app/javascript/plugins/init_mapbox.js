@@ -15,12 +15,15 @@ const addMarkersToMap = (map, markers) => {
 
   const element = document.createElement('div');
   element.className = 'marker';
-  element.style.backgroundImage = "url('')"
-  element.innerText = `${marker.price}$`;
-  element.style.color = 'blue';
+  element.style.backgroundColor = "white"
+  element.innerText = `${marker.price}€`;
+  element.style.color = 'black';
+  element.style.fontSize = "15px;"
   element.style.fontWeight = 'bold';
-  element.style.width = '25px';
-  element.style.height = '25px';
+  element.style.borderRadius = "5px";
+  element.style.padding = "10px;"
+  element.style.width = '30px';
+  element.style.height = '20px';
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // <-- add this
 
   // Pass the element as an argument to the new marker
