@@ -116,14 +116,13 @@
 }
 
 .add-review-btn {
-  color: black;
+  color: white;
   background-color: transparent;
-  border: 2px solid black;
-  border-radius: 5px;
   text-transform: capitalize;
-  margin: 5px;
   padding: 5px;
-  text-decoration: none;
+  position: absolute;
+  right: 5px;
+  top: 30px;
 }
 
 .delete-car-btn {

@@ -68,10 +68,10 @@
                     <%= image_tag("cross.png", class: "delete-cross") %>
                 <% end %>
               <% end %>
+            </div>
               <div class="add-review-btn">
                 <%= link_to "Add review", new_car_review_path(booking.car.id)%>
               </div>
-            </div>
               <div class="card-name">
                 <%= booking.car.name %><br>
               </div>
