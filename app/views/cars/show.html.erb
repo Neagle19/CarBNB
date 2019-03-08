@@ -2,38 +2,54 @@
 
 <div class="container-show">
   <div class="title-show" >
-    <h2><%= @car.name %> Details</h2>
+    <h2><%= @car.name %></h2>
   </div>
+    <div class="center-myself">
+      <div class="details-and-photo">
   <div class="cards">
-    <div class="show-card">
-      <ul>
-        <li><strong>Car Name: </strong><%= @car.name %></li>
-        <li><strong>Car Description: </strong><%= @car.description %></li>
-        <li><strong>Year: </strong><%= @car.year %></li>
-        <li><strong>Make: </strong><%= @car.make %></li>
-        <li><strong>Model: </strong><%= @car.model %></li>
-        <li><strong>Total Kilometers: </strong><%= @car.kilometers %></li>
-        <li><strong>Capacity: </strong><%= @car.capacity %></li>
-        <li><strong>Air Conditioning? </strong><%= @car.ac ? "Yes" : "No" %></li>
-        <li><strong>Fuel Type: </strong><%= @car.fuel %></li>
-        <li><strong>Fuel Consumption: </strong><%= @car.consumption %></li>
-        <li><strong>Minimum Age Allowed to Book this Car: </strong><%= @car.min_age %></li>
-        <li><strong>Price €/day: </strong><%= @car.price %></li>
-        <li><strong>Owner: </strong><%= link_to @car.user.first_name, profile_path(@car.user.id) %></li>
-        <% if current_user != @car.user && user_signed_in? %>
-        <li style="margin-top: 5px"><%= link_to "Start conversation with #{@car.user.first_name}", message_path(@car.user.id), class: "btn-profile conversation-btn" %></li>
-        <% end %>
-      </ul>
+      <div class="show-card">
+        <ul>
+          <li><strong>Car Name: </strong><%= @car.name %></li>
+          <li><strong>Car Description: </strong><%= @car.description %></li>
+          <li><strong>Year: </strong><%= @car.year %></li>
+          <li><strong>Make: </strong><%= @car.make %></li>
+          <li><strong>Model: </strong><%= @car.model %></li>
+          <li><strong>Total Kilometers: </strong><%= @car.kilometers %></li>
+          <li><strong>Capacity: </strong><%= @car.capacity %></li>
+          <li><strong>Air Conditioning? </strong><%= @car.ac ? "Yes" : "No" %></li>
+          <li><strong>Fuel Type: </strong><%= @car.fuel %></li>
+          <li><strong>Fuel Consumption: </strong><%= @car.consumption %></li>
+          <li><strong>Minimum Age Allowed to Book this Car: </strong><%= @car.min_age %></li>
+          <li><strong>Price €/day: </strong><%= @car.price %></li>
+          <li><strong>Owner: </strong><%= link_to @car.user.first_name, profile_path(@car.user.id) %></li>
+          <% if current_user != @car.user && user_signed_in? %>
+          <li style="margin-top: 5px"><%= link_to "Start conversation with #{@car.user.first_name}", message_path(@car.user.id), class: "btn-profile conversation-btn" %></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
     <div class="photo-card">
     <img src='<%= cl_image_path(@car.photo) %>' height="300">
     </div>
     </div>
   </div>
+  </div>
 </div>
 <br>
-<div class="container-review">
-<h3 id="review-title"><%= "-" * 10 %> Reviews <%= "-" * 10 %></h3>
+<div class="container-review1">
+  <div class="middle-box">
+    <div class="container-review2">
+      <% if user_signed_in? && @car.user != current_user %>
+        <%= link_to "Add review", new_car_review_path(@car.id), class: 'add-review-btn' %>
+        <%= link_to "Book this car", new_car_booking_path(@car.id), class: 'add-review-btn' %>
+      <% end %>
+      <% if @car.user == current_user %>
+        <%= link_to "Remove your car", car_path(@car), method: :delete, data: { confirm: "Are you sure?" }, class: 'delete-car-btn' %>
+      <% end %>
+      <%= link_to "Go back to list", cars_path, class: 'go-home-btn' %>
+    </div>
+    <h3 id="review-title"><%= "-" * 10 %> Reviews <%= "-" * 10 %></h3>
+  </div>
 <br>
 <br>
 <% @reviews.each do |review| %>
@@ -42,12 +58,3 @@
 </div>
 <br>
 
-<div class="container-review">
-  <% if user_signed_in? && @car.user != current_user %>
-    <%= link_to "Add review", new_car_review_path(@car.id), class: 'add-review-btn' %>
-  <% end %>
-  <% if @car.user == current_user %>
-    <%= link_to "Remove your car", car_path(@car), method: :delete, data: { confirm: "Are you sure?" }, class: 'delete-car-btn' %>
-  <% end %>
-  <%= link_to "Go back to list", cars_path, class: 'go-home-btn' %>
-</div>

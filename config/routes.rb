@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
   root 'cars#landing'
   resources :cars, only:[:show, :index, :new, :create, :destroy] do
+    get 'denied', to: 'cars#denied'
+
     resources :reviews, only:[:new, :create]
-    get "top", to: "cars#top"
+    resources :bookings do
+      get 'accepted', to: 'bookings#accepted'
+   end
   end
 end

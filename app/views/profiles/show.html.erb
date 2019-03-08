@@ -6,8 +6,8 @@
   <p><b>Contact me at:</b> <%= @user.email %></p>
   <% if current_user == @user %>
   <div class="hidden-info">
-    <p>You have <b><%= @user.balance %>$</b> at the moment.</p><br>
-    <%= link_to "Add 50 dollars", add50_path, class: "btn-profile" %><br>
+    <p>You have <b><%= @user.balance %>€</b> at the moment.</p><br>
+    <%= link_to "Add 50 euros", add50_path, class: "btn-profile" %><br>
     <%= link_to "Add new car", new_car_path, class: "btn-profile"  %>
   </div>
   <div class="center-self">
@@ -21,11 +21,13 @@
 
 
 <div class="container-profile">
+  <div class="owned-cars">
     <div class="cards-profile">
+      <h2>Your car(s):</h2>
       <% @cars.each do |car| %>
         <%= link_to car_path(car) do %>
         <div class="card">
-          <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.6) 80%), url(<%= cl_image_path(car.photo) %>);">
+          <div class="card-body" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 80%), url(<%= cl_image_path(car.photo) %>);">
             <div class="card-link">
               <div class="card-name">
                 <%= car.name %><br>
@@ -49,6 +51,40 @@
         </div>
         <% end %>
       <% end %>
-      </div>
     </div>
+  </div>
+  <div class="booked-cars">
+    <div class="cards-profile">
+      <h2>Your booking(s):</h2>
+      <% @bookings.each do |booking| %>
+      <%= link_to car_path(booking.car) do %>
+        <div class="card">
+          <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.6) 80%), url(<%= cl_image_path(booking.car.photo) %>);">
+            <div class="card-link">
+              <div class="card-name">
+                <%= booking.car.name %><br>
+              </div>
+              <div class="card-location">
+                <%= booking.car.location %>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="card-booking-date">
+              <p>Start Date: <%= booking.start_date.day %>-<%= booking.start_date.month %>-<%= booking.start_date.year %>
+              </p>
+              <p>End Date: <%= booking.end_date.day %>-<%= booking.end_date.month %>-<%= booking.end_date.year %></p>
+            </div>
+            <div class="card-price">
+              <%= booking.car.price * (booking.end_date.to_date - booking.start_date.to_date + 1).to_i%>€
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
 

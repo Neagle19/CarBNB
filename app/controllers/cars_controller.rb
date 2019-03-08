@@ -59,6 +59,11 @@ class CarsController < ApplicationController
     end
     @car_top = collect_cars.sort_by { |_k, v| v[0] }.reverse.first(5)
   end
+  def denied
+    set_booking3
+  end
+
+
 
   def destroy
     @car = Car.find(params[:id])
@@ -69,12 +74,15 @@ class CarsController < ApplicationController
       render :new
     end
   end
-
 # TZ private
   private
 
   def car_params
     params.require(:car).permit(:name, :location, :description, :capacity, :price, :user_id, :make, :model, :ac, :fuel, :consumption, :min_age, :search, :year, :kilometers, :photo, :photo_cache)
+  end
+
+  def set_booking3
+    @car = Car.find(params[:car_id])
   end
 end
 

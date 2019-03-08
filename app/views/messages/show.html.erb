@@ -4,15 +4,16 @@
   }
 </style>
 
-<div class="send-message">
-  <%= simple_form_for (@new_message) do |f| %>
+<div id="send-message">
+  <%= simple_form_for([@new_message], remote: true) do |f| %>
     <%= f.input :content, label: false %>
     <%= f.input :receiver_id,  as: :hidden, input_html: { value: @receiver.id } %>
 
     <%= f.button :submit, "Send", class: "btn-profile" %>
   <% end %>
 </div>
-
+<div id="messsages-list">
 <% @messages.each do |message|%>
   <p><%= message.created_at %>// <%= message.sender.first_name %> : <i><%= message.content %></i></p>
 <% end %>
+</div>

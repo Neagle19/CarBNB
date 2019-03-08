@@ -29,6 +29,11 @@ class Car < ApplicationRecord
     end
   end
 
+  def unavailable_dates
+    bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
   include PgSearch
   pg_search_scope :global_search,
   against: [:name, :make, :location, :model, :price, :year],

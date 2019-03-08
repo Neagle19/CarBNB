@@ -1,0 +1,13 @@
+<h2>Welcome to your bookings page</h2>
+
+<h3>Here are your confirmed bookings:</h3>
+
+<% @bookings.each do |booking| %>
+  <%= link_to car_bookings_path(booking) do %>
+  <%= booking.car %>
+  <%= booking.user %>
+  <%= booking.start_date %>
+  <%= booking.end_date %>
+  <%= booking.status %>
+  <% end %>
+<% end %>
