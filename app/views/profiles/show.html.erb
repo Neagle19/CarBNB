@@ -60,7 +60,7 @@
       <% @bookings.each do |booking| %>
       <%= link_to car_path(booking.car) do %>
         <div class="card">
-          <div class="card-body" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.6) 80%), url(<%= cl_image_path(booking.car.photo) %>);">
+          <div class="card-body" style="background-image: linear-gradient(-150deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.3) 80%), url(<%= cl_image_path(booking.car.photo) %>);">
             <div class="card-link">
             <div class="delete-btn">
               <% if current_user == @user %>
