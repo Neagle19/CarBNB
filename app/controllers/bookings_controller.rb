@@ -17,6 +17,8 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = 'just created'
     if @booking.save
+      @booking.user.balance -= @booking.calculate_price
+      @booking.user.save
       redirect_to car_booking_accepted_path(@car, @booking)
     else
       render :new

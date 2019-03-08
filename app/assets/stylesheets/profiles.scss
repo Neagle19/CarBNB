@@ -18,7 +18,10 @@
   top: 55px;
   right: 0;
   width: 75%;
-  margin-top: 20px;
+  bottom: 0;
+  h2 {
+    width: 180px;
+  }
 }
 
 .center-self {
@@ -54,6 +57,37 @@
   align-items: center;
 }
 
+.booked-cars {
+  display: flex;
+  height: 50%;
+  align-items: center;
+  font-family: 'Raleway', sans-serif;
+  border-left: solid;
+  border-width: 1px;
+  border-color: gray;
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  // flex: 1 1 auto;
+}
+
+.owned-cars {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  font-family: 'Raleway', sans-serif;
+  border-left: solid;
+  border-width: 1px;
+  border-color: gray;
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  // flex: 1 1 auto;
+}
+
+
 .hidden-info {
   display: flex;
   flex-direction: column;
@@ -71,4 +105,5 @@
   height: 30px;
   line-height: 30px;
   text-decoration: none;
+  padding: 6px;
 }

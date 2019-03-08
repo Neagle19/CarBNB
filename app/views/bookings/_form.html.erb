@@ -1,7 +1,19 @@
-<%= simple_form_for([@car, booking]) do |f| %>
+<style>
+  .header {
+    display: flex;
+    justify-content: center;
+    margin-top: 158px;
+  }
+</style>
+
+
+<img src='<%= cl_image_path(@car.photo) %>' height="300" class="booking-photo-car">
+
+
+<%= simple_form_for([@car, booking], class: "booking-form") do |f| %>
   <%= f.input :start_date, as: :date, html5: true %>
   <%= f.input :end_date, as: :date, html5: true %>
 
-  <%= f.submit %>
+  <%= f.submit class: "btn-profile btn-new-booking" %>
 
 <% end %>
