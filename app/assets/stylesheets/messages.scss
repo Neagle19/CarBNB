@@ -19,6 +19,14 @@
   border-width: 1.5px;
   border-color: #6B6A6A;
   float: left;
+  margin-bottom: 20px;
+  width: 500px;
+}
+
+.messages-list {
+  display:flex;
+  justify-content:flex-start;
+  flex-direction: column;
 }
 
 .text {
