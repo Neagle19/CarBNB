@@ -40,10 +40,10 @@
   <div class="middle-box">
     <div class="container-review2">
         <% if user_signed_in? && @car.user != current_user %>
-          <%= link_to "Book this car", new_car_booking_path(@car.id), class: 'add-review-btn' %>
+          <%= link_to "Book this car", new_car_booking_path(@car.id), class: 'go-home-btn' %>
         <% end %>
         <% if @car.user == current_user %>
-          <%= link_to "Remove your car", car_path(@car), method: :delete, data: { confirm: "Are you sure?" }, class: 'delete-car-btn' %>
+          <%= link_to "Remove your car", car_path(@car), method: :delete, data: { confirm: "Are you sure?" }, class: 'go-home-btn' %>
         <% end %>
         <%= link_to "Go back to list", cars_path, class: 'go-home-btn' %>
     </div>
