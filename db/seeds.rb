@@ -10,6 +10,7 @@ user123 = User.create!(
   email: "tester@test.com",
   password: "test123",
   password_confirmation: "test123",
+  balance: 3000
   first_name: "Dirk",
   last_name: "Vercammen",
   location: "Brussels",
@@ -33,7 +34,7 @@ url_list_cars = [
   car.description = "Amazing car #{i}"
   car.location = locations.sample
   car.capacity = 2
-  car.price = 300
+  car.price = 1
   car.make = 'Ferrari'
   car.model = 'Spider'
   car.ac = true
